@@ -1,0 +1,31 @@
+# Maven #
+target/
+
+# IDEA #
+.idea/
+*.iml
+
+# Eclipse #
+.settings/
+.classpath
+.project
+logs
+
+# VS Code #
+.vscode/
+
+
+# Eclipse #
+.settings/
+.classpath
+.project
+.pytest_cache
+__pycache__
+
+.cache-main
+.cache-tests
+.metals/
+.vscode/
+.checkpoint*
+checkpoint*
+
