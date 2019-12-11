@@ -3,13 +3,13 @@ package org.snowythinker.scs;
 import org.snowythinker.scs.model.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.context.annotation.ComponentScan;
 
 import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Slf4j
+@ComponentScan
 public class LoggingConsumerApplication {
 
 	public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class LoggingConsumerApplication {
 		}
 	}
 	
-	@StreamListener(Sink.INPUT)
+	//@StreamListener(Sink.INPUT)
 	public void handle(Person person) {
 		log.info("Received: {}", person);
 	}
