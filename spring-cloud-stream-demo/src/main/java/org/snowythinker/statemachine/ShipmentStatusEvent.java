@@ -1,6 +1,6 @@
 package org.snowythinker.statemachine;
 
-public enum OrderStatus {
+public enum ShipmentStatusEvent {
 
 	CREATED,
 	

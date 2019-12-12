@@ -4,8 +4,8 @@ import java.util.EnumSet;
 
 import javax.annotation.PostConstruct;
 
-import org.snowythinker.statemachine.OrderStatus;
-import org.snowythinker.statemachine.OrderStatusEvent;
+import org.snowythinker.statemachine.ShipmentStatus;
+import org.snowythinker.statemachine.ShipmentStatusEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.StateMachine;
@@ -16,10 +16,10 @@ import org.springframework.statemachine.config.builders.StateMachineTransitionCo
 
 @Configuration
 @EnableStateMachine
-public class OrderStatusConfig extends EnumStateMachineConfigurerAdapter<OrderStatus, OrderStatusEvent> {
+public class OrderStatusConfig extends EnumStateMachineConfigurerAdapter<ShipmentStatus, ShipmentStatusEvent> {
 
 	@Autowired
-	StateMachine<OrderStatus, OrderStatusEvent> stateMachine;
+	StateMachine<ShipmentStatus, ShipmentStatusEvent> stateMachine;
 	
 	@PostConstruct
 	public void postpone() {
@@ -27,20 +27,20 @@ public class OrderStatusConfig extends EnumStateMachineConfigurerAdapter<OrderSt
 	}
 
 	@Override
-	public void configure(StateMachineStateConfigurer<OrderStatus, OrderStatusEvent> states) throws Exception {
+	public void configure(StateMachineStateConfigurer<ShipmentStatus, ShipmentStatusEvent> states) throws Exception {
 		states.withStates()
-		.initial(OrderStatus.CREATED)
-		.states(EnumSet.allOf(OrderStatus.class));
+		.initial(ShipmentStatus.CREATED)
+		.states(EnumSet.allOf(ShipmentStatus.class));
 	}
 
 	@Override
-	public void configure(StateMachineTransitionConfigurer<OrderStatus, OrderStatusEvent> transitions)
+	public void configure(StateMachineTransitionConfigurer<ShipmentStatus, ShipmentStatusEvent> transitions)
 			throws Exception {
 		
 		transitions.withExternal()
-		.source(OrderStatus.CREATED).target(OrderStatus.PAID).event(OrderStatusEvent.PAID)
+		.source(ShipmentStatus.CREATED).target(ShipmentStatus.PAID).event(ShipmentStatusEvent.PAID)
 		.and().withExternal()
-		.source(OrderStatus.CREATED).target(OrderStatus.CANCELLED).event(OrderStatusEvent.CANCELLED);
+		.source(ShipmentStatus.CREATED).target(ShipmentStatus.CANCELLED).event(ShipmentStatusEvent.CANCELLED);
 	}
 	
 	

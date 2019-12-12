@@ -9,11 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 @WithStateMachine
 @Component
 @Slf4j
-public class OrderService {
+public class ShipmentService {
 
 	@OnTransition(target="CREATED")
-	public void createOrder() {
-		log.info("create order");
+	public void createShipment() {
+		log.info("create Shipment");
 	}
 	
 	@OnTransition(target="PAID")
