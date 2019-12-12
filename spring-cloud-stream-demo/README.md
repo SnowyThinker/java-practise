@@ -1,1 +1,1 @@
-# spring-cloud-stream-demo
+# Spring Cloud Stream with State Machine example

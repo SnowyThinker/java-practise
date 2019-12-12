@@ -17,7 +17,9 @@ public class OrderServiceTest extends AppTest {
 	StateMachine<OrderStatus, OrderStatusEvent> stateMachine;
 	
 	@Test
-	public void testCreateOrder() {
-		stateMachine.sendEvent(OrderStatusEvent.CREATED);
+	public void testCreateOrder() throws InterruptedException {
+		stateMachine.sendEvent(OrderStatusEvent.PAID);
+		
+		Thread.sleep(10000);
 	}
 }
