@@ -1,11 +1,22 @@
 package org.snowythinker.statemachine.service;
 
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.snowythinker.statemachine.event.order.OrderState;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Component
-@Slf4j
 public class OrderService {
+	
+	private final ConcurrentHashMap<UUID, OrderState> states;
+	
+	public OrderService() {
+		states = new ConcurrentHashMap<UUID, OrderState>();
+	}
+	
+	public ConcurrentHashMap<UUID, OrderState> getStates() {
+		return states;
+	}
 
 }
