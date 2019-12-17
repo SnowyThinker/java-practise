@@ -4,9 +4,9 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.snowythinker.statemachine.event.order.OrderState;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class OrderService {
 	
 	private final ConcurrentHashMap<UUID, OrderState> states;

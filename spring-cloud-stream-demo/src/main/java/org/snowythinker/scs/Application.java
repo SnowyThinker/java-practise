@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootApplication
 @Slf4j
 @ComponentScan(basePackages= {"org.snowythinker.scs", "org.snowythinker.statemachine"})
-public class LoggingConsumerApplication {
+public class Application {
 
 	public static void main(String[] args) {
 		try {
-			SpringApplication.run(LoggingConsumerApplication.class, args);
+			SpringApplication.run(Application.class, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
