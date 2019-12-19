@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GreetingsListener {
 
-	@StreamListener(GreetingsStreams.INPUT)
+	@StreamListener(GreetingsStreams.OUTPUT)
 	public void handleGreetings(@Payload Greetings greetings) {
 		log.info("handleGreetings: {}", greetings);
 	}

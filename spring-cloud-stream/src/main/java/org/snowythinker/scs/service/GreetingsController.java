@@ -17,11 +17,11 @@ public class GreetingsController {
 	
 	@GetMapping("/greetings")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public void greetings(@RequestParam("message") String message) {
+	public boolean greetings(@RequestParam("message") String message) {
 		Greetings greetings = Greetings.builder()
 				.message(message)
 				.timestamp(System.currentTimeMillis()).build();
 		
-		greetingsService.sendGreeting(greetings);
+		return greetingsService.sendGreeting(greetings);
 	}
 }

@@ -18,7 +18,7 @@ public class GreetingsService {
 	private final GreetingsStreams greetingsStreams;
 	
 	
-	public void sendGreeting(final Greetings greetings) {
+	public boolean sendGreeting(final Greetings greetings) {
 		
 		MessageChannel messageChannel = greetingsStreams.outboundGreetings();
 		
@@ -27,6 +27,6 @@ public class GreetingsService {
 			.setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
 			.build();
 		
-		messageChannel.send(messageBody);
+		return messageChannel.send(messageBody);
 	}
 }
